@@ -4,25 +4,27 @@ export default navbar([
   "/",
   "/demo/",
   {
-    text: "Java",
+    text: "指南",
     icon: "lightbulb",
-    prefix: "/java/"
-  },
-  {
-    text: "LeetCode",
-    icon: "lightbulb",
-    prefix: "/leetcode/",
+    prefix: "/guide/",
     children: [
       {
-        text: "Daily",
+        text: "Bar",
         icon: "lightbulb",
-        prefix: "daily/"
+        prefix: "bar/",
+        children: ["baz", { text: "...", icon: "ellipsis", link: "" }],
       },
       {
-        text: "Leetcode-75",
+        text: "Foo",
         icon: "lightbulb",
-        prefix: "leetcode-75/"
-      }
+        prefix: "foo/",
+        children: ["ray", { text: "...", icon: "ellipsis", link: "" }],
+      },
     ],
-  }
+  },
+  {
+    text: "V2 文档",
+    icon: "book",
+    link: "https://theme-hope.vuejs.press/zh/",
+  },
 ]);
