@@ -16,12 +16,12 @@ export default navbar([
       {
         text: "Daily",
         icon: "lightbulb",
-        prefix: "daily/",
+        prefix: "daily/"
       },
       {
         text: "Leetcode-75",
         icon: "lightbulb",
-        prefix: "leetcode-75/",
+        prefix: "leetcode-75/"
       },
     ],
   },
