@@ -6,7 +6,7 @@ export default navbar([
   {
     text: "Java",
     icon: "lightbulb",
-    prefix: "foo/"
+    prefix: "/java/"
   },
   {
     text: "LeetCode",
