@@ -22,7 +22,7 @@ export default navbar([
         text: "Leetcode-75",
         icon: "lightbulb",
         prefix: "leetcode-75/"
-      },
+      }
     ],
-  },
+  }
 ]);
