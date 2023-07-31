@@ -1,4 +1,4 @@
 ---
-title: 每日一练
+title: 每日一题
 icon: lightbulb
 ---
