@@ -16,6 +16,12 @@ export default sidebar({
       prefix: "guide/",
       children: "structure",
     },
+    {
+      text: "Java",
+      icon: "book",
+      prefix: "java/",
+      children: "structure",
+    },
     "slides",
   ],
 });

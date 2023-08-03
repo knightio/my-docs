@@ -1,12 +1,15 @@
 import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
-  "/",
-  "/demo/",
+  {
+    text: "主页",
+    icon: "lightbulb",
+    link: "/",
+  },
   {
     text: "Java",
     icon: "lightbulb",
-    prefix: "foo/"
+    link: "/java/",
   },
   {
     text: "LeetCode",
@@ -16,12 +19,12 @@ export default navbar([
       {
         text: "Daily",
         icon: "lightbulb",
-        prefix: "daily/",
+        link: "daily/",
       },
       {
         text: "Leetcode-75",
         icon: "lightbulb",
-        prefix: "leetcode-75/",
+        link: "leetcode-75/",
       },
     ],
   },
