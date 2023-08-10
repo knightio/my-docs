@@ -18,6 +18,8 @@ export default hopeTheme({
 
   docsDir: "src",
 
+  headerDepth : 3,
+
   // navbar
   navbar,
 

@@ -8,6 +8,12 @@ export default defineUserConfig({
   title: "一切为了更好的自己",
   description: "憨憨十二的Docs",
 
+  markdown:{
+    headers:{
+      level:[2,3,4],
+    }
+  },
+
   theme,
 
   // Enable it with pwa
