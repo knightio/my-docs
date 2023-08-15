@@ -6,7 +6,7 @@ export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "hanhan12",
+    name: "憨憨十二",
     url: "https://mister-hope.com",
   },
 
@@ -17,8 +17,6 @@ export default hopeTheme({
   repo: "knightio/my-docs",
 
   docsDir: "src",
-
-  headerDepth : 3,
 
   // navbar
   navbar,
