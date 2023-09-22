@@ -130,7 +130,7 @@ public User user2(){
 - 使用`@Autowired`注入同一类型的集合属性值的时候、`@Primary()`不会对集合中的对象值顺序发生变化、而`@Order()`和`@Priority()`会改变集合中的值顺序优先级 `@Order` > `@Priority`
 
 
-#### 注入失效
+#### 注入失效 （不该在这）
 
 ```java
 @Configuration
@@ -196,3 +196,36 @@ public class MyConfig1 {
 [DEBUG] 10:35:55.629 [main] com.itheima.a06.MyConfig1           - 执行 processor1 
 ```
 > @Autowired 和 @PostConstruct 的注入和初始化失败
+
+Java 配置类不包含 BeanFactoryPostProcessor 的情况
+
+```mermaid
+sequenceDiagram 
+participant ac as ApplicationContext
+participant bfpp as BeanFactoryPostProcessor
+participant bpp as BeanPostProcessor
+participant config as Java配置类
+ac ->> bfpp : 1. 执行 BeanFactoryPostProcessor
+ac ->> bpp : 2. 注册 BeanPostProcessor
+ac ->> +config : 3. 创建和初始化
+bpp ->> config : 3.1 依赖注入扩展(如 @Value 和 @Autowired)
+bpp ->> config : 3.2 初始化扩展(如 @PostConstruct)
+ac ->> config : 3.3 执行 Aware 及 InitializingBean
+config -->> -ac : 3.4 创建成功
+```
+
+Java 配置类包含 BeanFactoryPostProcessor 的情况，因此要创建其中的BeanFactoryPostProcessor 必须提前创建 Java 配置类，而此时的 BeanPostProcessor 还未备好，导致 @Autowired 等注解失效
+
+```mermaid
+sequenceDiagram 
+participant ac as ApplicationContext
+participant bfpp as BeanFactoryPostProcessor
+participant bpp as BeanPostProcessor
+participant config as Java配置类
+ac ->> +config : 3. 创建和初始化
+ac ->> config : 3.1 执行 Aware 及 InitializingBean
+config -->> -ac : 3.2 创建成功
+
+ac ->> bfpp : 1. 执行 BeanFactoryPostProcessor
+ac ->> bpp : 2. 注册 BeanPostProcessor
+```

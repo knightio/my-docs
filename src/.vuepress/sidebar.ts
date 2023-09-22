@@ -22,6 +22,12 @@ export default sidebar({
       prefix: "java/",
       children: "structure",
     },
+    {
+      text: "Redis",
+      icon: "book",
+      prefix: "redis/",
+      children: "structure",
+    },
     "slides",
   ],
 });
