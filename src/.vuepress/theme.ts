@@ -1,6 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import navbar from "./navbar.js";
-import sidebar from "./sidebar.js";
+import sidebar from "./sidebars/sidebar.js";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
@@ -14,6 +14,8 @@ export default hopeTheme({
 
   logo: "/logo.svg",
 
+  // navTitle: false,
+
   repo: "knightio/my-docs",
 
   docsDir: "src",
@@ -24,7 +26,7 @@ export default hopeTheme({
   // sidebar
   sidebar,
 
-  footer: "默认页脚",
+  footer: "<a href='https://beian.miit.gov.cn/' target='_blank'>京ICP备2023018079号</a>",
 
   displayFooter: true,
 

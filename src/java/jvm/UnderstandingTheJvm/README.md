@@ -1,4 +1,4 @@
 ---
-title: 《深入理解Java虚拟机》
-icon: lightbulb
+title: 深入理解Java虚拟机
+index: false
 ---

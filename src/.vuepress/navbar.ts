@@ -6,10 +6,16 @@ export default navbar([
     icon: "lightbulb",
     link: "/",
   },
+  "/Java/",
   {
-    text: "Java",
+    text: "Redis",
     icon: "lightbulb",
-    link: "/java/",
+    link: "/redis/",
+  },
+  {
+    text: "Linux",
+    icon: "lightbulb",
+    link: "/linux/",
   },
   {
     text: "LeetCode",
