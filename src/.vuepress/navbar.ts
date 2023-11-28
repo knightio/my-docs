@@ -18,6 +18,11 @@ export default navbar([
     link: "/linux/",
   },
   {
+    text: "面试",
+    icon: "lightbulb",
+    link: "/interview/",
+  },
+  {
     text: "LeetCode",
     icon: "lightbulb",
     prefix: "/leetcode/",

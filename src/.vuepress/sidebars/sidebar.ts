@@ -4,6 +4,7 @@ export default sidebar({
   "/java":"structure",
   "/redis":"structure",
   "/linux":"structure",
+  "/interview":"structure",
   "/": [
     "",
   ],

@@ -1,3 +1,4 @@
 ---
 title: ArchLinux
+index: false
 ---

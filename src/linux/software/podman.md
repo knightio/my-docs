@@ -5,6 +5,18 @@ docker的替代？
 1. rootless模式
 2. 无守护线程
 
+## 配置镜像地址
+
+**修改文件**
+
+- 全局镜像：`/etc/containers/registries.conf`
+
+- 用户镜像：`~/.config/containers/registries.conf`
+
+```
+unqualified-search-registries = ["docker.io", "registry.access.redhat.com"]
+```
+
 ## 拉取镜像
 
 ```shell
@@ -89,7 +101,7 @@ systemctl --user --now enable container-podname.service
 
 ## 更新pod
 
-添加 `-label "io.containers.autoupdate:registry"`
+添加 `--label "io.containers.autoupdate:registry"`
 
 ```shell
 podman run --label "io.containers.autoupdate=registry" podname
