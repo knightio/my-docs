@@ -101,7 +101,7 @@ systemctl --user --now enable container-podname.service
 
 ## 更新pod
 
-添加 `--label "io.containers.autoupdate:registry"`
+添加 `--label "io.containers.autoupdate=registry"`
 
 ```shell
 podman run --label "io.containers.autoupdate=registry" podname
@@ -114,4 +114,3 @@ systemctl --now enable container-podname.service
 ```shell
 podman auto-update
 ```
-
