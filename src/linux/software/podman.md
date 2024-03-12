@@ -42,7 +42,17 @@ podman run -d -p 80:80 -p 443:443
 -v /usr/local/podman/nginx/conf/nginx.conf:/etc/nginx/nginx.conf  
 -v /usr/local/podman/nginx/conf/conf.d:/etc/nginx/conf.d  
 -v /usr/local/podman/nginx/logs:/var/log/nginx  
--v /usr/local/ssl:/etc/nginx/ssl nginx 
+-v /usr/local/ssl:/etc/nginx/ssl 
+nginx 
+```
+
+### redis
+
+```shell
+podman run -d -p 6379:6379 --name myredis
+-v /usr/local/podman/redis/conf/redis.conf:/usr/local/etc/reids/redis.conf
+-v /usr/local/podman/redis/data:/data
+redis redis-server /usr/local/etc/redis/reids.conf
 ```
 
 ## 查看pod
@@ -70,6 +80,10 @@ podman exec -it podname bin/bash
 ```
 
 ## podman服务自启
+
+文件映射是尽量为全路径
+
+systemd 文件位置： `/etc/systemd/system/`
 
 ```shell
 podman generate systemd --files --name podname --new
@@ -102,9 +116,15 @@ systemctl --user --now enable container-podname.service
 ## 更新pod
 
 添加 `--label "io.containers.autoupdate=registry"`
+//todo
+或？
+`--label "io.containers.autoupdate=image"`
+
+需保证run/pull时为镜像全路径
 
 ```shell
-podman run --label "io.containers.autoupdate=registry" podname
+# docker.io/library/nginx
+podman run --label "io.containers.autoupdate=registry" docker.io/podname
 ```
 
 ```shell
@@ -113,4 +133,20 @@ systemctl --now enable container-podname.service
 
 ```shell
 podman auto-update
+```
+
+## 疑难杂症
+
+### wsl2 显示 WARN[0000] "/" is not a shared mount, this could cause issues or missing mounts with rootless containers
+
+```shell
+$ findmnt -o PROPAGATION /
+PROPAGATION
+shared
+```
+
+解决
+
+```shell
+sudo mount --make-rshared /
 ```
