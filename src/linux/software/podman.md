@@ -36,13 +36,13 @@ podman run podname
 ### nginx
 
 ```shell
-podman run -d -p 80:80 -p 443:443 
---name mynginx 
--v /usr/local/podman/nginx/html:/usr/share/nginx/html 
--v /usr/local/podman/nginx/conf/nginx.conf:/etc/nginx/nginx.conf  
--v /usr/local/podman/nginx/conf/conf.d:/etc/nginx/conf.d  
--v /usr/local/podman/nginx/logs:/var/log/nginx  
--v /usr/local/ssl:/etc/nginx/ssl 
+podman run -d -p 80:80 -p 443:443 \
+--name mynginx  \
+-v /usr/local/podman/nginx/html:/usr/share/nginx/html \
+-v /usr/local/podman/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v /usr/local/podman/nginx/conf/conf.d:/etc/nginx/conf.d \
+-v /usr/local/podman/nginx/logs:/var/log/nginx \
+-v /usr/local/ssl:/etc/nginx/ssl \
 nginx 
 ```
 
