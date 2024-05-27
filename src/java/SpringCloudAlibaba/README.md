@@ -1,5 +1,5 @@
 ---
 title: SpringCloudAlibaba
 index: false
-order: 6
+order: 4
 ---

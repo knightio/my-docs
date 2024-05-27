@@ -6,7 +6,7 @@ export default navbar([
     icon: "lightbulb",
     link: "/",
   },
-  "/Java/",
+  "/java/",
   {
     text: "Redis",
     icon: "lightbulb",
