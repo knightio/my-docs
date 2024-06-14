@@ -8,9 +8,9 @@ export default navbar([
   },
   "/java/",
   {
-    text: "Redis",
+    text: "数据库",
     icon: "lightbulb",
-    link: "/redis/",
+    link: "/dbs/",
   },
   {
     text: "Linux",
