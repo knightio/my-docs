@@ -5,6 +5,8 @@ export default sidebar({
   "/redis":"structure",
   "/linux":"structure",
   "/interview":"structure",
+  "/dbs":"structure",
+  "/books":"structure",
   "/": [
     "",
   ],
