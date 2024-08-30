@@ -7,6 +7,7 @@ export default navbar([
     link: "/",
   },
   "/java/",
+  "/books/",
   {
     text: "数据库",
     icon: "lightbulb",
