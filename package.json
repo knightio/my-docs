@@ -11,9 +11,9 @@
     "docs:update-package": "npx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.9",
-    "vue": "^3.4.27",
-    "vuepress": "2.0.0-rc.9",
-    "vuepress-theme-hope": "2.0.0-rc.43"
+    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "vue": "^3.5.11",
+    "vuepress": "2.0.0-rc.17",
+    "vuepress-theme-hope": "2.0.0-rc.58"
   }
 }
