@@ -1,6 +1,7 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import navbar from "./navbar.js";
-import sidebar from "./sidebars/sidebar.js";
+
+import { zhNavbar } from "./navbar/index.js";
+import {  zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
@@ -10,41 +11,136 @@ export default hopeTheme({
     url: "https://mister-hope.com",
   },
 
-  iconAssets: "fontawesome-with-brands",
+  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
 
-  logo: "/logo.svg",
-
-  // navTitle: false,
-
-  repo: "knightio/my-docs",
+  repo: "vuepress-theme-hope/vuepress-theme-hope",
 
   docsDir: "src",
 
-  // navbar
-  navbar,
+  locales: {
+    "/": {
+      // navbar
+      navbar: zhNavbar,
 
-  // sidebar
-  sidebar,
+      // sidebar
+      sidebar: zhSidebar,
 
-  footer: "<a href='https://beian.miit.gov.cn/' target='_blank'>京ICP备2023018079号</a>",
+      footer: "Default footer",
 
-  displayFooter: true,
+      displayFooter: true,
+
+      metaLocales: {
+        editLink: "Edit this page on GitHub",
+      },
+    },
+
+    /**
+     * Chinese locale config
+     */
+    // "/zh/": {
+    //   // navbar
+    //   navbar: zhNavbar,
+
+    //   // sidebar
+    //   sidebar: zhSidebar,
+
+    //   footer: "默认页脚",
+
+    //   displayFooter: true,
+
+    //   // page meta
+    //   metaLocales: {
+    //     editLink: "在 GitHub 上编辑此页",
+    //   },
+    // },
+  },
 
   encrypt: {
     config: {
-      "/demo/encrypt.html": ["1234"],
+      "/demo/encrypt.html": {
+        hint: "Password: 1234",
+        password: "1234",
+      },
+      "/zh/demo/encrypt.html": {
+        hint: "Password: 1234",
+        password: "1234",
+      },
     },
   },
 
-  // page meta
-  metaLocales: {
-    editLink: "在 GitHub 上编辑此页",
+  // These features are enabled for demo, only preserve features you need here
+  markdown: {
+    align: true,
+    attrs: true,
+    codeTabs: true,
+    component: true,
+    demo: true,
+    figure: true,
+    gfm: true,
+    imgLazyload: true,
+    imgSize: true,
+    include: true,
+    mark: true,
+    plantuml: true,
+    spoiler: true,
+    stylize: [
+      {
+        matcher: "Recommended",
+        replacer: ({ tag }) => {
+          if (tag === "em")
+            return {
+              tag: "Badge",
+              attrs: { type: "tip" },
+              content: "Recommended",
+            };
+        },
+      },
+    ],
+    sub: true,
+    sup: true,
+    tabs: true,
+    tasklist: true,
+    vPre: true,
+
+    // uncomment these if you need TeX support
+    // math: {
+    //   // install katex before enabling it
+    //   type: "katex",
+    //   // or install mathjax-full before enabling it
+    //   type: "mathjax",
+    // },
+
+    // install chart.js before enabling it
+    // chartjs: true,
+
+    // install echarts before enabling it
+    // echarts: true,
+
+    // install flowchart.ts before enabling it
+    // flowchart: true,
+
+    // install mermaid before enabling it
+    // mermaid: true,
+
+    // playground: {
+    //   presets: ["ts", "vue"],
+    // },
+
+    // install @vue/repl before enabling it
+    // vuePlayground: true,
+
+    // install sandpack-vue3 before enabling it
+    // sandpack: true,
+
+    // install @vuepress/plugin-revealjs and uncomment these if you need slides
+    // revealjs: {
+    //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+    // },
   },
 
-  contributors: false,
-
   plugins: {
-    // You should generate and use your own comment service
+    // Note: This is for testing ONLY!
+    // You MUST generate and use your own comment service in production.
     // comment: {
     //   provider: "Giscus",
     //   repo: "vuepress-theme-hope/giscus-discussions",
@@ -52,46 +148,20 @@ export default hopeTheme({
     //   category: "Announcements",
     //   categoryId: "DIC_kwDOG_Pt2M4COD69",
     // },
-    comment: false,
-    // All features are enabled for demo, only preserve features you need here
-    mdEnhance: {
-      align: true,
-      attrs: true,
-      codetabs: true,
-      component: true,
-      demo: true,
-      figure: true,
-      imgLazyload: true,
-      imgSize: true,
-      include: true,
-      mark: true,
-      plantuml: true,
-      spoiler: true,
-      stylize: [
-        {
-          matcher: "Recommended",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommended",
-              };
-          },
-        },
-      ],
-      sub: true,
-      sup: true,
-      tabs: true,
-      tasklist: true,
-      vPre: true,
+
+    components: {
+      components: ["Badge", "VPCard"],
     },
 
-    // uncomment these if you want a pwa
+    icon: {
+      prefix: "fa6-solid:",
+    },
+
+    // Install @vuepress/plugin-pwa and uncomment these if you want a PWA
     // pwa: {
     //   favicon: "/favicon.ico",
     //   cacheHTML: true,
-    //   cachePic: true,
+    //   cacheImage: true,
     //   appendBase: true,
     //   apple: {
     //     icon: "/assets/icon/apple-icon-152.png",
